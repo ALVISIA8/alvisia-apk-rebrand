@@ -1,1 +1,0 @@
-# alvisia-apk-rebrand
