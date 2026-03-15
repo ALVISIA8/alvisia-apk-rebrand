@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: alvisia-apk-rebrand
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PYTHON_ENV
+        value: production
+    # Render free tier: 512MB RAM, shared CPU
+    # Cukup untuk APK < 50MB
+    # Untuk APK besar upgrade ke Starter ($7/bln)
+    healthCheckPath: /api/health
+    autoDeploy: true
