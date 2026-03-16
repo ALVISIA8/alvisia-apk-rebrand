@@ -1,17 +1,51 @@
-Kesalahan
-java.io.FileNotFoundException: open failed: ENOENT (No such file or directory)
-	at android.database.DatabaseUtils.readExceptionWithFileNotFoundExceptionFromParcel(DatabaseUtils.java:151)
-	at android.content.ContentProviderProxy.openTypedAssetFile(ContentProviderNative.java:780)
-	at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:2029)
-	at android.content.ContentResolver.openAssetFileDescriptor(ContentResolver.java:1844)
-	at android.content.ContentResolver.openFileDescriptor(ContentResolver.java:1677)
-	at android.content.ContentResolver.openFileDescriptor(ContentResolver.java:1624)
-	at l.ᩴۨۗ.<init>(Y4H1:32)
-	at l.֡ۨۗ.ܺ(V4XG:23)
-	at l.֡ۜۘ.ܰ(E166:237)
-	at l.ۧۜۘ.call(I16A:0)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
-	at java.lang.Thread.run(Thread.java:1564)
-  
+name: Rebrand APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      job_id:
+        required: true
+        type: string
+      apk_url:
+        required: false
+        type: string
+      icon_url:
+        required: false
+        type: string
+      app_name:
+        required: false
+        type: string
+      old_pkg:
+        required: false
+        type: string
+      new_pkg:
+        required: false
+        type: string
+      old_url:
+        required: false
+        type: string
+      new_url:
+        required: false
+        type: string
+      old_key:
+        required: false
+        type: string
+      new_key:
+        required: false
+        type: string
+      bypass_login:
+        required: false
+        type: string
+      extra_replacements:
+        required: false
+        type: string
+
+jobs:
+  rebrand:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run Rebrand
+        run: echo "Job ${{ inputs.job_id }} received"
